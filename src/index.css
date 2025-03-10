@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  font-family: 'Playfair Display', 'Montserrat', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --dark: #002147;
+  --dark-shade: #2d63e6;
+  --accent: #E6B02D;
+  --light-shade: #ABA8C9;
+  --light: #EFEFEC;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.modal {
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  height: fit-content;
+  min-width: 230px;
+  min-height: 60px;
+  padding: 2rem;
+  display: flex;
+  opacity: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  background-color: var(--light);
+  border: 1px solid var(--dark);
+  transition: all 0.3s ease-in;
+}
+
+.modal--open {
+  opacity: 1;
+  top: 50%;
+}
+
+.modal .pi-times {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  cursor: pointer;
+}
+
+.modal__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}

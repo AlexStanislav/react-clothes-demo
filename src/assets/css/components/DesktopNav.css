@@ -1,0 +1,55 @@
+.desktop-nav {
+    display: flex;
+    padding: 1rem 5rem;
+    justify-content: space-between;
+
+}
+
+.desktop-nav__links {
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+}
+
+.desktop-nav__link {
+    cursor: pointer;
+    font-size: 1.1em;
+    font-weight: 500;
+    display: flex;
+    position: relative;
+}
+
+.desktop-nav__link a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
+.desktop-nav__link .pi {
+    font-size: 1.4em;
+    padding-top: 0.05em;
+}
+
+.favorite-count,
+.cart-count {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: var(--dark);
+    line-height: 12px;
+    color: #fff;
+    bottom: 0;
+    right: -0.6em;
+    border-radius: 50%;
+    padding: 0 0.1em;
+    font-size: 0.75em;
+    font-family: 'Montserrat', sans-serif;
+}
+
+@media screen and (max-width: 815px) {
+    .desktop-nav {
+        display: none;
+    }
+}

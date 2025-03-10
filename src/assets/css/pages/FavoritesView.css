@@ -1,0 +1,13 @@
+.favorites {
+    height: fit-content;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 2rem;
+}
+
+.favorites .product-card{
+    height: 605px;
+}
