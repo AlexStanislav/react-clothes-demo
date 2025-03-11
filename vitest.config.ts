@@ -9,4 +9,8 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
   },
+  build: {
+    outDir: "../server/public",
+    emptyOutDir: true,
+  },
 });
