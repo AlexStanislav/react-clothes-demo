@@ -19,8 +19,12 @@ import type { Product } from "./types";
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
+  const isDev = process.env.NODE_ENV === "development";
+
   useEffect(() => {
-    fetch("http://localhost:3000/products")
+    fetch(
+      `${isDev ? "http://localhost:3000" : window.location.origin}/products`
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data.products));
   }, []);
