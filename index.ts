@@ -13,6 +13,17 @@ app.get("/products", (req, res) => {
   res.json({ products });
 });
 
+app.put("/testUpdate", (req, res) => {
+  const { id, name } = req.body;
+  try {
+    db.prepare("UPDATE products SET name = ? WHERE id = ?").run(name, id);
+    res.json({ message: "Product updated successfully" });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Failed to update product" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Server listening on port http://localhost:${port}`);
 });
