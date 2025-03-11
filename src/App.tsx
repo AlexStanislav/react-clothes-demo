@@ -1,7 +1,6 @@
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
-
-import productsFile from "../products.json";
+import { useEffect, useState } from "react";
 
 import Home from "./pages/HomeView";
 import Products from "./pages/ProductsView";
@@ -15,8 +14,16 @@ import Contact from "./pages/Contact";
 import { ProductsContext } from "./store";
 import { GlobalCartProvider, GlobalFavoriteProvider } from "./utils/providers";
 
+import type { Product } from "./types";
+
 function App() {
-  const products = productsFile;
+  const [products, setProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch("http://localhost:3000/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data.products));
+  }, []);
 
   return (
     <>
