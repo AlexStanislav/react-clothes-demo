@@ -1,6 +1,6 @@
-import { carouselItems } from "../helpers";
+import { carouselItems } from "@/helpers";
 import { useState } from "react";
-import "../assets/css/components/Carousel.css";
+import "@/assets/css/components/Carousel.css";
 import CarouselItem from "./CarouselItem";
 
 interface CarouselProps {

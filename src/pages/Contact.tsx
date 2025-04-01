@@ -1,4 +1,4 @@
-import "../assets/css/pages/Contact.css";
+import "@/assets/css/pages/Contact.css";
 import { MapContainer, TileLayer } from "react-leaflet";
 
 const Contact = () => {

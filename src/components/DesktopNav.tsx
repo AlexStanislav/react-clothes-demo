@@ -1,7 +1,7 @@
-import "../assets/css/components/DesktopNav.css";
+import "@/assets/css/components/DesktopNav.css";
 import { Link } from "react-router-dom";
-import { CartItem, Product } from "../types";
-import { useCart, useFavorites } from "../store";
+import { CartItem, Product } from "@/types";
+import { useCart, useFavorites } from "@/store";
 function DesktopNav() {
   const [cart] = useCart() as [
     CartItem[],

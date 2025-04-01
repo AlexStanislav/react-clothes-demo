@@ -1,8 +1,8 @@
-import "../assets/css/components/MobileNav.css";
-import type { CartItem, Product } from "../types";
+import "@/assets/css/components/MobileNav.css";
+import type { CartItem, Product } from "@/types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useCart, useFavorites } from "../store";
+import { useCart, useFavorites } from "@/store";
 
 function MobileNav() {
   const [navOpen, setNavOpen] = useState(false);

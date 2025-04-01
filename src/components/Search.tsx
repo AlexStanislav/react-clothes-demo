@@ -1,4 +1,4 @@
-import "../assets/css/components/Search.css";
+import "@/assets/css/components/Search.css";
 import { useState } from "react";
 
 interface SearchProps {

@@ -1,4 +1,4 @@
-import "../assets/css/components/Checkbox.css";
+import "@/assets/css/components/Checkbox.css";
 
 interface CheckboxProps {
   value: string;

@@ -25,3 +25,18 @@ export interface CarouselItem {
   image: string;
   textPosition: { top: string; left: string; right: string; bottom: string };
 }
+
+export interface ProductToParse {
+  id: number;
+  name: string;
+  description: string;
+  price: number;
+  category: string;
+  collection: string;
+  image: string;
+  old_price: number;
+  brand: string;
+  rating: number;
+  sizes: string;
+  colors: string;
+}

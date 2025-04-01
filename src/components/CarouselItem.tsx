@@ -1,5 +1,5 @@
-import type { CarouselItem } from "../types";
-import "../assets/css/components/CarouselItem.css";
+import type { CarouselItem } from "@/types";
+import "@/assets/css/components/CarouselItem.css";
 
 interface CarouselItemProps {
   item: CarouselItem;

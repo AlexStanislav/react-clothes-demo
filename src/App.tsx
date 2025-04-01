@@ -14,20 +14,26 @@ import Contact from "./pages/Contact";
 import { ProductsContext } from "./store";
 import { GlobalCartProvider, GlobalFavoriteProvider } from "./utils/providers";
 
+import { parseProducts } from "./utils/functions.ts";
+
 import type { Product } from "./types";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
 
-  const isDev = process.env.NODE_ENV === "development";
+  const apiURL =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : window.location.origin;
 
   useEffect(() => {
-    fetch(
-      `${isDev ? "http://localhost:3000" : window.location.origin}/products`
-    )
+    fetch(`${apiURL}/products/getAll`)
       .then((res) => res.json())
-      .then((data) => setProducts(data.products));
-  }, []);
+      .then((data) => {
+        const parsedProducts = parseProducts(data.products);
+        setProducts(parsedProducts);
+      });
+  }, [apiURL]);
 
   return (
     <>

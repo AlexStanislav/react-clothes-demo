@@ -1,9 +1,9 @@
-import "../assets/css/pages/ProductPageView.css";
+import "@/assets/css/pages/ProductPageView.css";
 import { useParams } from "react-router-dom";
-import { useCart, useFavorites, useProducts, useModal } from "../store";
-import type { Product, CartItem } from "../types";
+import { useCart, useFavorites, useProducts, useModal } from "@/store";
+import type { Product, CartItem } from "@/types";
 import { useState } from "react";
-import ProductCard from "../components/ProductCard";
+import ProductCard from "@/components/ProductCard";
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>();

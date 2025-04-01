@@ -1,7 +1,7 @@
-import "../assets/css/components/ProductCard.css";
-import type { Product, CartItem } from "../types";
+import "@/assets/css/components/ProductCard.css";
+import type { Product, CartItem } from "@/types";
 import { useNavigate } from "react-router-dom";
-import { useFavorites, useCart, useModal } from "../store";
+import { useFavorites, useCart, useModal } from "@/store";
 
 function ProductCard({ product }: { product: Product }) {
   const navigate = useNavigate();

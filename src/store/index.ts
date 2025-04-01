@@ -1,5 +1,5 @@
 import React from "react";
-import type { CartItem, Product } from "../types";
+import type { CartItem, Product } from "@/types";
 
 export const ProductsContext = React.createContext({});
 export const useProducts = () => React.useContext(ProductsContext);

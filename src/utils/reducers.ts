@@ -1,4 +1,4 @@
-import { CartItem, Product } from "../types";
+import { CartItem, Product } from "@/types";
 
 export const CartReducer = (
   state: CartItem[],

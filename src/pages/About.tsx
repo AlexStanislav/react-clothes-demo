@@ -1,4 +1,4 @@
-import "../assets/css/pages/About.css";
+import "@/assets/css/pages/About.css";
 
 function About() {
   return (

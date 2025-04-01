@@ -1,11 +1,11 @@
-import "../assets/css/pages/ProductsView.css";
-import type { Product } from "../types";
+import "@/assets/css/pages/ProductsView.css";
+import type { Product } from "@/types";
 import { useState, useEffect, useCallback } from "react";
-import { useProducts } from "../store";
-import ProductCard from "../components/ProductCard";
-import Search from "../components/Search";
-import Pagination from "../components/Pagination";
-import Checkbox from "../components/Checkbox";
+import { useProducts } from "@/store";
+import ProductCard from "@/components/ProductCard";
+import Search from "@/components/Search";
+import Pagination from "@/components/Pagination";
+import Checkbox from "@/components/Checkbox";
 
 function ProductsView() {
   const store = useProducts() as { products: Product[] };

@@ -8,7 +8,7 @@ import {
   FavoriteDispatchContext,
   ModalInitialState,
   ModalDispatchContext,
-} from "../store";
+} from "@/store";
 import { CartReducer, FavoriteReducer, ModalReducer } from "./reducers";
 
 export const GlobalCartProvider = ({
