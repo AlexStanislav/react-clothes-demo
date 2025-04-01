@@ -1,0 +1,19 @@
+.chart-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.chart {
+    height: 500px !important;
+}
+
+.pie-chart {
+    width: 30% !important;
+    height: 500px !important;
+}
+
+.chart-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1em;
+}

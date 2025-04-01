@@ -1,0 +1,31 @@
+.main__products {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+
+.pagination .page-link {
+    color: var(--dark);
+}
+
+.pagination .active>.page-link {
+    background-color: var(--dark);
+    border-color: var(--dark);
+    color: #fff;
+}
+
+.main__search {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.search {
+    width: 92%;
+}
+
+.clear-search {
+    position: absolute;
+    right: 8.5em;
+    cursor: pointer;
+    font-size: 1.25em;
+}

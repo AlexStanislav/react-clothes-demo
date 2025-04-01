@@ -1,0 +1,64 @@
+.main__table {
+    margin: 0 0 0.75em 0;
+}
+
+.table__image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+
+.main__pagination {
+    display: flex;
+    justify-content: center;
+    height: 2.5em;
+}
+
+.table__actions {
+    display: flex;
+    gap: 1em;
+}
+
+.table__actions .bi-pencil-fill {
+    cursor: pointer;
+    color: var(--bs-success);
+}
+
+.table__actions .bi-trash-fill {
+    cursor: pointer;
+    color: var(--bs-danger);
+}
+
+
+.table__head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.table__head .bi {
+    cursor: pointer;
+}
+
+.delete-confirm {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border: 1px solid var(--bs-border-color);
+    border-radius: 5px;
+    background-color: var(--light);
+    position: absolute;
+    right: 4em;
+    gap: 0.5em;
+    padding: 1em 0;
+}
+
+.delete-confirm .btn {
+    width: 90%;
+}
+
+.delete-confirm .bi {
+    font-size: 1.25em;
+    color: var(--bs-danger);
+}

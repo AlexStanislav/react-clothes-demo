@@ -1,0 +1,15 @@
+.order-details {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+.order-details__table {
+    padding: 0 2em;
+}
+
+.order-details__total {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0 2em;
+}
