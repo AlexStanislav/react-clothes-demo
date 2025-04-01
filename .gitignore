@@ -4,6 +4,12 @@ npm-debug.log
 yarn-error.log
 .pnpm-debug.log
 
+# Dev
+dev/
+orders.json
+products.json
+
+
 # Logs
 logs
 *.log
