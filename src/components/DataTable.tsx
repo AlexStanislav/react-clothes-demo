@@ -14,6 +14,13 @@ function getIndividualDisplaySort(columns: string[]) {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function parsedColumnValue(column: string, value: { [key: string]: any }) {
   const columnValue = column.toLowerCase().replace(/\s/g, "_");
+  if (columnValue === "created_at") {
+    const date = new Date(value[columnValue]);
+    return `${date.toLocaleString("default", {
+      month: "long",
+    })} ${date.getDate()}, ${date.getFullYear()}`;
+  }
+
   if (typeof value[columnValue] === "object") {
     return Object.values(value[columnValue]).join(" ");
   } else {
@@ -68,7 +75,7 @@ function DataTable({
 
   const sortColumn = (column: string) => {
     const sortedValues = [...values].sort((a, b) => {
-      const parsedColumn = column.toLowerCase();
+      const parsedColumn = column.toLowerCase().replace(/\s/g, "_");
       if (sortDirection === "asc") {
         return a[parsedColumn] > b[parsedColumn] ? 1 : -1;
       } else {

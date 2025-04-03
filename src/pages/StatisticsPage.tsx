@@ -42,6 +42,7 @@ function StatisticsPage() {
       fall: 0,
       winter: 0,
     };
+    const categoryTotal: Record<string, number> = { men: 0, women: 0 };
 
     // Nested object for category and collection counts
     const categoryCollectionCount: Record<string, Record<string, number>> = {};
@@ -64,6 +65,9 @@ function StatisticsPage() {
         categoryCollectionCount[category][collection] = 0;
       }
       categoryCollectionCount[category][collection] += 1;
+
+      // Increment total count for category
+      categoryTotal[category] += (item as { total_price: number }).total_price;
     });
 
     // Return an object with order date and counts
@@ -72,6 +76,7 @@ function StatisticsPage() {
       categoryCount,
       collectionCount: totalCollectionCount,
       categoryCollectionCount,
+      categoryTotal,
     };
   });
 
@@ -179,6 +184,7 @@ function StatisticsPage() {
       collectionCounts.fall,
       collectionCounts.winter,
     ];
+
     const barChart = document.getElementById("barChart") as HTMLCanvasElement;
     const barChartInstance = new Chart(barChart, {
       type: "line",
@@ -262,6 +268,15 @@ function StatisticsPage() {
     };
   }, [filteredOrderDates, chartMonth, chartBar, barColor, collectionCounts]);
 
+  const collectionColors: Record<string, string> = {
+    new: "rgb(255, 99, 132)",
+    hot: "rgb(54, 162, 235)",
+    spring: "rgb(255, 206, 86)",
+    summer: "rgb(75, 192, 192)",
+    fall: "rgb(153, 102, 255)",
+    winter: "rgb(255, 159, 64)",
+  };
+
   return (
     <div className="statistics">
       <div className="chart-controls">
@@ -294,6 +309,105 @@ function StatisticsPage() {
       <div className="chart-container">
         <canvas id="barChart" className="chart"></canvas>
         <canvas id="pieChart" className="pie-chart"></canvas>
+      </div>
+      <div className="chart-data">
+        <table className="table">
+          <thead className="table-dark">
+            <tr>
+              <th>Order date</th>
+              <th>Orders Amount</th>
+              <th>Collections</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredOrderDates.map((date) => (
+              <tr key={date.orderDate}>
+                <td>{date.orderDate}</td>
+                <td>{date.categoryCount[chartBar]}</td>
+                <td>
+                  {Object.entries(
+                    date.categoryCollectionCount?.[chartBar] ?? {}
+                  ).map(([collection, count]) => (
+                    <span
+                      className="table__collection"
+                      style={{ backgroundColor: collectionColors[collection] }}
+                      key={collection}
+                    >
+                      {collection}
+                      <span className="table__badge">{count}</span>
+                    </span>
+                  ))}
+                </td>
+                <td>{date.categoryTotal[chartBar]} &euro;</td>
+              </tr>
+            ))}
+          </tbody>
+          <thead>
+            <tr>
+              <th></th>
+              <th>Orders amount for {chartMonth}</th>
+              <th>Collection amount</th>
+              <th>{chartMonth} renvenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>
+                {filteredOrderDates.reduce(
+                  (total, date) => total + date.categoryCount[chartBar],
+                  0
+                )}
+              </td>
+              <td>
+                {Object.entries(collectionCounts).map(([collection, count]) => (
+                  <span
+                    className="table__collection"
+                    style={{ backgroundColor: collectionColors[collection] }}
+                    key={collection}
+                  >
+                    {collection} <span className="table__badge">{count}</span>
+                  </span>
+                ))}
+              </td>
+              <td>
+                {filteredOrderDates.reduce(
+                  (total, date) => total + date.categoryTotal[chartBar],
+                  0
+                )}{" "}
+                €
+              </td>
+            </tr>
+          </tbody>
+          <thead className="table-dark">
+            <tr>
+              <th></th>
+              <th>Total {chartBar} orders</th>
+              <th></th>
+              <th>Total {chartBar} renvenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>
+                {orderDates.reduce(
+                  (total, date) => total + date.categoryCount[chartBar],
+                  0
+                )}
+              </td>
+              <td></td>
+              <td>
+                {orderDates.reduce(
+                  (total, date) => total + date.categoryTotal[chartBar],
+                  0
+                )}{" "}
+                &euro;
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );
