@@ -1,9 +1,9 @@
-import "@/assets/css/pages/HomeView.css";
-import Carousel from "@/components/Carousel";
-import type { Product } from "@/types";
+import "../assets/css/pages/HomeView.css";
+import Carousel from "../components/Carousel.tsx";
+import type { Product } from "../types";
 import { useState } from "react";
-import ProductCard from "@/components/ProductCard";
-import { useProducts } from "@/store";
+import ProductCard from "../components/ProductCard";
+import { useProducts } from "../store";
 
 function Home() {
   const store = useProducts() as { products: Product[] };
@@ -21,7 +21,7 @@ function Home() {
   return (
     <>
       <section className="carousel-section">
-        <Carousel autoplayInterval={5000} />
+        <Carousel />
       </section>
       <section className="products-section">
         <h2 className="products-section__title">COLLECTIONS</h2>

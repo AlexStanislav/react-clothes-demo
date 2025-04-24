@@ -12,15 +12,19 @@ import Favorites from "./pages/FavoritesView";
 import Cart from "./pages/CartView";
 import Contact from "./pages/Contact";
 import { ProductsContext } from "./store";
-import { GlobalCartProvider, GlobalFavoriteProvider } from "./utils/providers";
+import {
+  GlobalCartProvider,
+  GlobalFavoriteProvider,
+  GlobalLoggedStatusProvider,
+} from "./utils/providers";
 
 import { parseProducts } from "./utils/functions.ts";
 
 import type { Product } from "./types";
+import Orders from "./pages/Orders.tsx";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
-
   const apiURL =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
@@ -37,39 +41,46 @@ function App() {
 
   return (
     <>
-      <GlobalCartProvider>
-        <GlobalFavoriteProvider>
-          <header className="header">
-            <div className="header__top-bar">
-              <span>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-              </span>
-              <section className="header__social">
-                <i className="pi pi-facebook"></i>
-                <i className="pi pi-twitter"></i>
-                <i className="pi pi-youtube"></i>
-                <i className="pi pi-instagram"></i>
-              </section>
-            </div>
+      <GlobalLoggedStatusProvider>
+        <GlobalCartProvider>
+          <GlobalFavoriteProvider>
+            <header className="header">
+              <div className="header__top-bar">
+                <span>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                </span>
+                <section className="header__social">
+                  <i className="pi pi-facebook"></i>
+                  <i className="pi pi-twitter"></i>
+                  <i className="pi pi-youtube"></i>
+                  <i className="pi pi-instagram"></i>
+                </section>
+              </div>
 
-            <DesktopNav />
-            <MobileNav />
-          </header>
-          <ProductsContext.Provider value={{ products }}>
-            <main className="main">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/products/:id" element={<ProductPage />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </main>
-          </ProductsContext.Provider>
-        </GlobalFavoriteProvider>
-      </GlobalCartProvider>
+              <DesktopNav />
+              <MobileNav />
+            </header>
+            <ProductsContext.Provider value={{ products }}>
+              <main className="main">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/products/:id" element={<ProductPage />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                  <Route
+                    path="/cart"
+                    element={<Cart />}
+                  />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/orders" element={<Orders />} />
+                  <Route path="*" element={<h1>404</h1>} />
+                </Routes>
+              </main>
+            </ProductsContext.Provider>
+          </GlobalFavoriteProvider>
+        </GlobalCartProvider>
+      </GlobalLoggedStatusProvider>
 
       <footer className="footer">
         <section className="footer__section">

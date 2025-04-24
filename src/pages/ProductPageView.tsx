@@ -1,9 +1,9 @@
-import "@/assets/css/pages/ProductPageView.css";
+import "../assets/css/pages/ProductPageView.css";
 import { useParams } from "react-router-dom";
-import { useCart, useFavorites, useProducts, useModal } from "@/store";
-import type { Product, CartItem } from "@/types";
+import { useCart, useFavorites, useProducts, useModal } from "../store";
+import type { Product, CartItem } from "../types";
 import { useState } from "react";
-import ProductCard from "@/components/ProductCard";
+import ProductCard from "../components/ProductCard";
 
 function ProductPage() {
   const { id } = useParams<{ id: string }>();
@@ -16,8 +16,11 @@ function ProductPage() {
     .filter((p) => p.category === product?.category)
     .slice(0, 6);
 
-  const [color, setColor] = useState(product?.colors[0]);
-  const [size, setSize] = useState(product?.sizes[0]);
+  const initialColor = product?.colors[0] || "purple";
+  const initialSize = product?.sizes[0] || "S";
+
+  const [color, setColor] = useState(initialColor as string);
+  const [size, setSize] = useState(initialSize as string);
 
   const [, cartDispatch] = useCart() as [
     CartItem[],
@@ -153,12 +156,11 @@ function ProductPage() {
               value={color}
             >
               {product?.colors.map((color) => (
-                <option className="selector__option" key={color} value={color}>
-                  {color.toUpperCase()}
+                <option className="selector__option" key={color.toString()} value={color.toString()}>
+                  {color.toString().toUpperCase()}
                 </option>
               ))}
             </select>
-
             <div
               className="color__display"
               style={{ backgroundColor: color }}

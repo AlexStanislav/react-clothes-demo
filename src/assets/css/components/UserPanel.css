@@ -1,0 +1,54 @@
+.panel {
+    position: relative;
+}
+
+.panel__icon {
+    padding: 0.25rem 0.5rem;
+    border: 2px solid var(--dark);
+    position: relative;
+    top: -0.25em;
+    cursor: pointer;
+}
+
+.panel__popup {
+    width: 200px;
+    position: absolute;
+    left: -115px;
+    border: 1px solid var(--dark);
+    background-color: var(--light);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+}
+
+.popup__message {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+}
+
+.popup__orders {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.popup__link {
+    color: var(--dark);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.panel__form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form__input {
+    width: 90% !important; 
+    border: 1px solid var(--dark);
+}

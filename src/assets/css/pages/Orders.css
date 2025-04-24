@@ -1,0 +1,124 @@
+.orders {
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.orders__title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+    padding: 2rem 0;
+}
+
+.orders__search {
+    width: 90%;
+    margin: auto;
+    padding: 2em 0;
+}
+
+
+.orders__search-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--dark);
+    outline: none;
+}
+
+.orders__wrapper {
+    width: 90%;
+    margin: auto;
+    background-color: #fff;
+    padding: 2em;
+    border: 1px solid var(--dark);
+    margin-bottom: 2em;
+    box-sizing: border-box;
+}
+
+
+.orders__header {
+    list-style: none;
+    margin: 0;
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--dark);
+    color: #fff;
+}
+
+.header__item {
+    width: 25%;
+    text-align: center;
+}
+
+.orders__header .header__item {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.orders__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em 0;
+    border-top: 1px solid var(--dark);
+    border-bottom: 1px solid var(--dark);
+    margin: 1em 0;
+}
+
+.list__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.list__row {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    background-color: var(--light);
+    padding: 1em 0;
+}
+
+.list__column {
+    width: 25%;
+    text-align: center;
+}
+
+.cart__header {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 1em 0;
+    margin: 1.5em 0;
+    border: 1px dotted var(--dark);
+}
+
+.cart__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1em;
+    justify-content: space-between;
+}
+
+.cart__item {
+    width: 25%;
+    text-align: center;
+}
+
+.no-orders {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.login-message {
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    padding-top: 2em;
+}

@@ -1,6 +1,6 @@
-import "@/assets/css/pages/CartView.css";
-import type { CartItem } from "@/types";
-import { useCart } from "@/store";
+import "../assets/css/pages/CartView.css";
+import type { CartItem } from "../types";
+import { useCart } from "../store";
 
 function Cart() {
   const [cart, cartDispatch] = useCart() as [

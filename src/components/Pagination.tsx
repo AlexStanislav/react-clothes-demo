@@ -1,4 +1,4 @@
-import "@/assets/css/components/Pagination.css";
+import "../assets/css/components/Pagination.css";
 import { useState } from "react";
 
 interface PaginationProps {

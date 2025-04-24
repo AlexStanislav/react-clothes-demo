@@ -8,8 +8,16 @@ import {
   FavoriteDispatchContext,
   ModalInitialState,
   ModalDispatchContext,
-} from "@/store";
-import { CartReducer, FavoriteReducer, ModalReducer } from "./reducers";
+  LoggedStatusInitialState,
+  LoggedStatusContext,
+  LoggedStatusDispatchContext,
+} from "../store";
+import {
+  CartReducer,
+  FavoriteReducer,
+  ModalReducer,
+  LoggedStatusReducer,
+} from "./reducers";
 
 export const GlobalCartProvider = ({
   children,
@@ -62,6 +70,23 @@ export const GlobalModalProvider = ({
         ></i>
         <div className="modal__content">{state.children}</div>
       </div>
+    </>
+  );
+};
+
+export const GlobalLoggedStatusProvider = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => {
+  const [state, dispatch] = useReducer(LoggedStatusReducer, LoggedStatusInitialState);
+  return (
+    <>
+      <LoggedStatusContext.Provider value={state}>
+        <LoggedStatusDispatchContext.Provider value={dispatch}>
+          {children}
+        </LoggedStatusDispatchContext.Provider>
+      </LoggedStatusContext.Provider>
     </>
   );
 };

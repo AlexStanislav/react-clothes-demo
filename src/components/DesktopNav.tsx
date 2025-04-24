@@ -1,7 +1,8 @@
-import "@/assets/css/components/DesktopNav.css";
+import "../assets/css/components/DesktopNav.css";
 import { Link } from "react-router-dom";
-import { CartItem, Product } from "@/types";
-import { useCart, useFavorites } from "@/store";
+import { CartItem, Product } from "../types";
+import { useCart, useFavorites, useLoggedStatus } from "../store";
+import UserPanel from "./UserPanel";
 function DesktopNav() {
   const [cart] = useCart() as [
     CartItem[],
@@ -15,6 +16,10 @@ function DesktopNav() {
 
   const totalCartItems = cart.reduce((acc, item) => acc + item.quantity, 0);
   const totalFavoriteItems = favorites.length;
+
+  const [isLoggedin] = useLoggedStatus() as [boolean];
+
+  console.log(isLoggedin);
 
   return (
     <nav className="desktop-nav">
@@ -45,6 +50,7 @@ function DesktopNav() {
           </Link>
           <div className="favorite-count">{totalFavoriteItems}</div>
         </li>
+        <li><UserPanel /></li>
       </ul>
     </nav>
   );

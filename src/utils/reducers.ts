@@ -1,4 +1,4 @@
-import { CartItem, Product } from "@/types";
+import { CartItem, Product } from "../types";
 
 export const CartReducer = (
   state: CartItem[],
@@ -73,6 +73,16 @@ export const ModalReducer = (
   }
   if (action.type === "CLOSE_MODAL") {
     return { isOpen: false, children: null };
+  }
+  return state;
+};
+
+export const LoggedStatusReducer = (
+  state: boolean,
+  action: { type: string; payload: boolean }
+) => {
+  if (action.type === "SET_LOGGED_IN") {
+    return action.payload;
   }
   return state;
 };

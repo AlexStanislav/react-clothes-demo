@@ -1,7 +1,7 @@
-import "@/assets/css/pages/FavoritesView.css";
-import type { Product } from "@/types";
-import { useFavorites } from "@/store";
-import ProductCard from "@/components/ProductCard";
+import "../assets/css/pages/FavoritesView.css";
+import type { Product } from "../types";
+import { useFavorites } from "../store";
+import ProductCard from "../components/ProductCard";
 
 function Favorites() {
   const [favorites] = useFavorites() as [

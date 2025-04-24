@@ -1,8 +1,19 @@
 import React from "react";
-import type { CartItem, Product } from "@/types";
+import type { CartItem, Product } from "../types";
 
 export const ProductsContext = React.createContext({});
 export const useProducts = () => React.useContext(ProductsContext);
+
+export const LoggedStatusInitialState = false;
+export const LoggedStatusContext = React.createContext(LoggedStatusInitialState);
+export const LoggedStatusDispatchContext = React.createContext<
+  React.Dispatch<{ type: string; payload: boolean }>
+>(() => {});
+
+export const useLoggedStatus = () => [
+  React.useContext(LoggedStatusContext),
+  React.useContext(LoggedStatusDispatchContext),
+];
 
 export const CartInitialState: CartItem[] = [];
 export const CartContext = React.createContext(CartInitialState);
@@ -43,7 +54,7 @@ export const useStore = () => [
 export const ModalInitialState = { isOpen: false, children: null };
 export const ModalContext = React.createContext(ModalInitialState);
 export const ModalDispatchContext = React.createContext<
-  React.Dispatch<{ type: string, payload: React.ReactNode }>
+  React.Dispatch<{ type: string; payload: React.ReactNode }>
 >(() => {});
 
 export const useModal = () => [

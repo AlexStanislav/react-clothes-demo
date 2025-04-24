@@ -29,6 +29,11 @@
     padding-top: 0.05em;
 }
 
+.desktop-nav__links {
+    position: relative;
+    padding-right: 1em;
+}
+
 .favorite-count,
 .cart-count {
     width: 16px;
@@ -40,7 +45,7 @@
     background-color: var(--dark);
     line-height: 12px;
     color: #fff;
-    bottom: 0;
+    top: 1em;
     right: -0.6em;
     border-radius: 50%;
     padding: 0 0.1em;

@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { describe, it, expect } from "vitest";
-import Carousel from "@/components/Carousel";
+import Carousel from "../components/Carousel";
 
 describe("Carousel", () => {
   it("should render Carousel component", () => {

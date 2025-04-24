@@ -1,7 +1,7 @@
-import "@/assets/css/components/ProductCard.css";
-import type { Product, CartItem } from "@/types";
+import "../assets/css/components/ProductCard.css";
+import type { Product, CartItem } from "../types";
 import { useNavigate } from "react-router-dom";
-import { useFavorites, useCart, useModal } from "@/store";
+import { useFavorites, useCart, useModal } from "../store";
 
 function ProductCard({ product }: { product: Product }) {
   const navigate = useNavigate();
@@ -51,13 +51,15 @@ function ProductCard({ product }: { product: Product }) {
     });
   };
 
+
   const addToCart = () => {
     const cartProduct = {
-      ...product,
       quantity: 1,
-      selectedColor: product.colors[0],
-      selectedSize: product.sizes[0],
+      selectedColor: "purple",
+      selectedSize: "S",
+      ...product,
     };
+    console.log(cartProduct);
     cartDispatch({
       type: "ADD_TO_CART",
       payload: cartProduct,
