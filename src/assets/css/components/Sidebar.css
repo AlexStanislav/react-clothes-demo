@@ -5,6 +5,9 @@
     width: 200px;
     padding: 1em;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .sidebar__list {
