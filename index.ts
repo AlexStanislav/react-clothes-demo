@@ -1,5 +1,4 @@
 import express from "express";
-import { maxHeaderSize } from "http";
 const app = express();
 const session = require("express-session");
 const port = process.env.PORT || 3000;

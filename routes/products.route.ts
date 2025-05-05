@@ -21,7 +21,6 @@ router.put("/update", (req, res) => {
     category,
     brand,
     rating,
-    image,
     old_price,
     collection,
     description,
@@ -31,14 +30,13 @@ router.put("/update", (req, res) => {
 
   try {
     db.prepare(
-      "UPDATE products SET name = ?, price = ?, category = ?, brand = ?, rating = ?, image = ?, old_price = ?, collection = ?, description = ?, sizes = ?, colors = ? WHERE id = ?"
+      "UPDATE products SET name = ?, price = ?, category = ?, brand = ?, rating = ?, old_price = ?, collection = ?, description = ?, sizes = ?, colors = ? WHERE id = ?"
     ).run(
       name,
       price,
       category,
       brand,
       rating,
-      image,
       old_price,
       collection,
       description,
