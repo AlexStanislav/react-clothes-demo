@@ -20,7 +20,7 @@ function Sidebar({ logOut }: { logOut: (data: boolean) => void }) {
       <ul className="sidebar__list">
         <li className="sidebar__item">
           <Link
-            to="/"
+            to="/dashboard"
             className="sidebar__link sidebar__link--active"
             onClick={(e) => handleLinkClik(e.currentTarget)}
           >

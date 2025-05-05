@@ -17,7 +17,7 @@ function App() {
           <Sidebar logOut={setIsLoggedIn} />
           <main className="main">
             <Routes>
-              <Route path="/" element={<ProductsPage />} />
+              <Route path="/dashboard" element={<ProductsPage />} />
               <Route path="/orders" element={<OrdersPage />} />
               <Route path="/statistics" element={<StatisticsPage />} />
             </Routes>
