@@ -17,7 +17,7 @@ function Orders() {
   useEffect(() => {
     if (!loggedStatus) return;
     else {
-      fetch(`${apiUrl}/orders/getAll`)
+      fetch(`${apiUrl}/orders/getByUser`)
         .then((res) => res.json())
         .then((data) => {
           const parsedOrders = parseOrders(data.orders);

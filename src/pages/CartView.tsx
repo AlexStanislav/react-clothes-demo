@@ -1,11 +1,16 @@
 import "../assets/css/pages/CartView.css";
 import type { CartItem } from "../types";
-import { useCart } from "../store";
+import { useCart, useModal } from "../store";
 
 function Cart() {
   const [cart, cartDispatch] = useCart() as [
     CartItem[],
     React.Dispatch<{ type: string; payload: CartItem }>
+  ];
+
+  const [, modalDispatch] = useModal() as [
+    { isOpen: boolean; children: React.ReactNode },
+    React.Dispatch<{ type: string; payload: React.ReactNode }>
   ];
 
   const removeFromCart = (item: CartItem) => {
@@ -34,6 +39,48 @@ function Cart() {
     (acc, item) => acc + item.price * item.quantity,
     0
   );
+
+  const apiUrl =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : window.location.origin;
+
+  const handleCheckout = () => {
+
+    const payload = {
+      email: "test@user1.com",
+      items: cart,
+    };
+
+    fetch(`${apiUrl}/orders/new`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.success) {
+          cartDispatch({
+            type: "CLEAR_CART",
+            payload: { id: 0 } as CartItem,
+          });
+
+          modalDispatch({
+            type: "OPEN_MODAL",
+            payload: <span className="order-success">ORDER PLACED</span>,
+          });
+
+          setTimeout(() => {
+            modalDispatch({
+              type: "CLOSE_MODAL",
+              payload: null,
+            });
+          }, 1000);
+        }
+      });
+  };
 
   return (
     <section className="cart">
@@ -83,7 +130,12 @@ function Cart() {
       </div>
       <footer className="cart__footer">
         {cart.length > 0 && (
-          <span className="cart__total">Total: ${cartTotal}</span>
+          <>
+            <span className="cart__total">Total: ${cartTotal}</span>
+            <button className="cart__checkout" onClick={handleCheckout}>
+              Checkout
+            </button>
+          </>
         )}
       </footer>
     </section>

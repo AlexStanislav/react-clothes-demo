@@ -115,7 +115,7 @@ function UserPanel() {
       )}
       {isComponentVisible && loggedStatus === true && (
         <div className="panel__popup">
-          <p className="popup__message">You are logged in as {email}</p>
+          <p className="popup__message">You are logged in as {email ? email : "Test User"}</p>
           <div className="popup__orders">
             <Link className="popup__link" to="/orders">
               My Orders

@@ -25,6 +25,10 @@ export const CartReducer = (
     return state.filter((item) => item.id !== action.payload.id);
   }
 
+  if (action.type === "CLEAR_CART") {
+    return [];
+  }
+
   if (action.type === "INCREMENT_QUANTITY") {
     return state.map((item) => {
       if (item.id === action.payload.id) {
