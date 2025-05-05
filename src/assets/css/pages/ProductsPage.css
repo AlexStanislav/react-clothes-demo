@@ -19,6 +19,10 @@
     gap: 1em;
 }
 
+.main__search .btn-success {
+    cursor: not-allowed;
+}
+
 .search {
     width: 92%;
 }

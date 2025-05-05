@@ -61,7 +61,7 @@ function EditProduct({
       <form className="edit-product__form" onSubmit={(e) => e.preventDefault()}>
         <div className="row">
           <div className="col-12">
-            <div className="form-floating mb-3">
+            {/* <div className="form-floating mb-3">
               <input
                 name="image"
                 id="image"
@@ -71,7 +71,7 @@ function EditProduct({
                 onChange={handleInputChange}
               />
               <label htmlFor="image">Image URL</label>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="row">

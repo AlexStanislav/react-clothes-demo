@@ -75,7 +75,7 @@ function ProductsPage() {
   const handlePageChange = (page: number) => {
     const startIndex = (page - 1) * productsPerPage; // Calculate the starting index of the page
     const endIndex = startIndex + productsPerPage; // Calculate the ending index of the page
-    const productsToDisplay = products.slice(startIndex, endIndex); // Slice the products array to get the products to display
+    const productsToDisplay = filteredProducts.slice(startIndex, endIndex); // Slice the products array to get the products to display
     setActivePage(page);
     setDisplayProducts(productsToDisplay);
   };
@@ -86,26 +86,26 @@ function ProductsPage() {
    * Sets the addNewProduct state to true.
    * Sets the productToEdit state to the new product.
    */
-  const handleAddProduct = () => {
-    const newProduct: Product = {
-      id: products.length,
-      name: "New Product",
-      category: "men",
-      description: "New Product",
-      collection: "New",
-      brand: "Asics",
-      colors: [],
-      sizes: ["S", "M", "L", "XL", "XXL"],
-      price: 0,
-      old_price: 0,
-      rating: 0,
-      image: "https://picsum.photos/350/600?random=1",
-    };
-    // Set addNewProduct state to true to indicate a new product is being added
-    setAddNewProduct(true);
-    // Set productToEdit state to the new product to edit
-    setProductToEdit(newProduct);
-  };
+  // const handleAddProduct = () => {
+  //   const newProduct: Product = {
+  //     id: products.length,
+  //     name: "New Product",
+  //     category: "men",
+  //     description: "New Product",
+  //     collection: "New",
+  //     brand: "Asics",
+  //     colors: [],
+  //     sizes: ["S", "M", "L", "XL", "XXL"],
+  //     price: 0,
+  //     old_price: 0,
+  //     rating: 0,
+  //     image: "https://picsum.photos/350/600?random=1",
+  //   };
+  //   // Set addNewProduct state to true to indicate a new product is being added
+  //   setAddNewProduct(true);
+  //   // Set productToEdit state to the new product to edit
+  //   setProductToEdit(newProduct);
+  // };
 
   /**
    * Handles saving changes to an edited product.
@@ -208,7 +208,7 @@ function ProductsPage() {
             className="btn btn-success"
             data-bs-toggle="modal"
             data-bs-target="#editProductModal"
-            onClick={handleAddProduct}
+            disabled
           >
             Add Product
           </button>
@@ -229,10 +229,10 @@ function ProductsPage() {
       <Pagination
         activePage={activePage}
         changePage={handlePageChange}
-        totalRows={products.length}
+        totalRows={searchQuery ? filteredProducts.length : products.length}
       />
 
-      <Modal modalTitle="Product" modalId="editProductModal">
+      <Modal modalTitle={`Edit Product ${productToEdit?.name}`} modalId="editProductModal">
         {productToEdit && (
           <EditProduct
             productData={productToEdit}

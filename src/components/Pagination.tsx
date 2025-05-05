@@ -8,7 +8,7 @@ function Pagination({
   totalRows: number;
 }) {
   const paginationPages = Array.from(
-    { length: Math.ceil(totalRows / 18) },
+    { length: Math.ceil(totalRows / 14) },
     (_, index) => index + 1
   );
 
