@@ -3,6 +3,7 @@ import type { CartItem, Product } from "../types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useCart, useFavorites } from "../store";
+import UserPanel from "./UserPanel";
 
 function MobileNav() {
   const [navOpen, setNavOpen] = useState(false);
@@ -20,7 +21,9 @@ function MobileNav() {
   return (
     <nav className="mobile-nav">
       <i className="pi pi-bars" onClick={() => setNavOpen(!navOpen)}></i>
-      <div className="logo">DEMO CLOTHES</div>
+      <div className="logo">
+        <Link to="/">DEMO CLOTHES</Link>
+      </div>
       <span className="mobile-nav__icons">
         <Link to="/cart">
           <i className="pi pi-shopping-cart">{totalCartItems}</i>
@@ -39,6 +42,9 @@ function MobileNav() {
           <i className="pi pi-times" onClick={() => setNavOpen(false)}></i>
           <h2 className="mobile-nav__title">Menu</h2>
           <ul className="mobile-nav__links">
+            <li>
+              <UserPanel />
+            </li>
             <li onClick={() => setNavOpen(false)}>
               <Link className="link" to="/">
                 Home

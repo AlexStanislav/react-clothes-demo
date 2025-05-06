@@ -122,3 +122,18 @@
     font-size: 1.5rem;
     padding-top: 2em;
 }
+
+@media screen and (max-width: 812px) {
+    .orders__search {
+        width: 70%;
+    }
+
+    .list__row .list__column,
+    .cart__list .cart__item,
+    .orders__header .header__item {
+        font-size: 0.8rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}

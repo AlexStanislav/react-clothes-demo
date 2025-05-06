@@ -52,3 +52,9 @@
     width: 90% !important; 
     border: 1px solid var(--dark);
 }
+
+@media screen and (max-width: 815px) {
+    .panel__popup {
+        left: -100px;
+    }
+}

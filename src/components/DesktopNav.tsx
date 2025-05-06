@@ -23,8 +23,9 @@ function DesktopNav() {
 
   return (
     <nav className="desktop-nav">
-      <div className="logo">DEMO CLOTHES</div>
-
+      <div className="logo">
+        <Link to="/">DEMO CLOTHES</Link>
+      </div>
       <ul className="desktop-nav__links">
         <li className="desktop-nav__link">
           <Link to="/">Home</Link>
@@ -50,7 +51,9 @@ function DesktopNav() {
           </Link>
           <div className="favorite-count">{totalFavoriteItems}</div>
         </li>
-        <li><UserPanel /></li>
+        <li>
+          <UserPanel />
+        </li>
       </ul>
     </nav>
   );

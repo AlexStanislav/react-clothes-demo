@@ -5,6 +5,11 @@
 
 }
 
+.desktop-nav .logo a {
+    text-decoration: none;
+    color: var(--dark);
+}
+
 .desktop-nav__links {
     display: flex;
     list-style: none;

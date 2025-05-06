@@ -22,6 +22,11 @@
     position: relative;
 }
 
+.mobile-nav .logo a {
+    text-decoration: none;
+    color: #fff;
+}
+
 .mobile-nav__icons {
     display: flex;
     gap: 1rem;
@@ -35,10 +40,10 @@
 .mobile-nav__sidebar {
     width: 100vw;
     height: 100vh;
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 5;
     transform: translateX(-100%);
 }
 
@@ -97,7 +102,7 @@
     cursor: pointer;
 }
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:812px) {
     .mobile-nav {
         display: flex;
     }
