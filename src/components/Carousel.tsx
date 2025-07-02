@@ -21,13 +21,15 @@ function Carousel({ autoplayInterval }: CarouselProps) {
   }
 
   if (autoplayInterval) {
-    setInterval(() => {
-      if (activeIndex === carouselItems.length - 1) {
+    if(activeIndex === carouselItems.length - 1) {
+      setTimeout(() => {
         setActiveIndex(0);
-      } else {
+      }, autoplayInterval);
+    } else {
+      setTimeout(() => {
         setActiveIndex(activeIndex + 1);
-      }
-    }, autoplayInterval);
+      }, autoplayInterval);
+    }
   }
 
   return (
@@ -44,7 +46,7 @@ function Carousel({ autoplayInterval }: CarouselProps) {
           data-testid="next__button"
         ></i>
       </div>
-      
+
       <div className="carousel__wrapper">
         <div
           className="carousel__slider"

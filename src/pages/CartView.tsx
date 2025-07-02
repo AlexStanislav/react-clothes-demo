@@ -1,8 +1,10 @@
 import "../assets/css/pages/CartView.css";
 import type { CartItem } from "../types";
 import { useCart } from "../store";
+import { useNavigate } from "react-router-dom";
 
 function Cart() {
+  const navigate = useNavigate();
   const [cart, cartDispatch] = useCart() as [
     CartItem[],
     React.Dispatch<{ type: string; payload: CartItem }>
@@ -42,7 +44,12 @@ function Cart() {
           <div className="item" key={item.id}>
             <img className="item__image" src={item.image} alt={item.name} />
             <div className="item__info">
-              <h3 className="item__name">{item.name}</h3>
+              <h3
+                className="item__name"
+                onClick={() => navigate(`/products/${item.id}`)}
+              >
+                {item.name}
+              </h3>
               <p className="item__brand">{item.brand}</p>
               <ul className="item__details">
                 <li className="details__item">

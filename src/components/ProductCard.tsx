@@ -41,7 +41,7 @@ function ProductCard({ product }: { product: Product }) {
         type: "CLOSE_MODAL",
         payload: null,
       });
-    }, 2500);
+    }, 1000);
   };
 
   const removeFromFavorites = () => {
@@ -75,7 +75,7 @@ function ProductCard({ product }: { product: Product }) {
         type: "CLOSE_MODAL",
         payload: null,
       });
-    }, 2500);
+    }, 1000);
   };
 
   return (
@@ -92,6 +92,9 @@ function ProductCard({ product }: { product: Product }) {
           style={{ display: isAlreadyFavorite ? "" : "none" }}
           onClick={removeFromFavorites}
         ></i>
+      </div>
+      <div className="product-card__loader">
+        <div className="loader"></div>
       </div>
       <img
         className="product-card__image"

@@ -1,5 +1,6 @@
 .product-card {
     width: 400px;
+    height: 600px;
     position: relative;
     cursor: pointer;
 }
@@ -8,6 +9,28 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.product-card__loader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.loader {
+    width: 10vh;
+    height: 10vh;
+    border-radius: 100%;
+    border: 5px solid #fff;
+    border-top: 5px solid var(--dark);
+    animation: loader 1s infinite linear;
 }
 
 .product-card__actions {
@@ -84,6 +107,12 @@
     background-color: var(--dark);
     opacity: 0;
     transition: all 0.3s ease-in-out;
+}
+
+@keyframes loader {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @media screen and (max-width: 815px) {
